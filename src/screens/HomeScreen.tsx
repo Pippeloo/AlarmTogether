@@ -11,8 +11,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 function HomeScreen({ navigation }: any) {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f3057' }}>
+        <Text style={{color: '#FFD700', fontFamily: 'Party LET', fontSize: 60}}
+        >Home Screen</Text>
         <Button
           title="Go to Details"
           onPress={() => navigation.navigate('Details')}
