@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { InputModeOptions, SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
 interface InputFieldProps {
-  placeholder: string;
-  value: string;
-  onChangeText: (text: string) => void;
+  placeholder?: string;
+  value?: string;
+  onChangeText?: (text: string) => void;
   inputMode?: InputModeOptions;
   secureTextEntry?: boolean;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
-    placeholder,
-    value,
-    onChangeText,
+const CInputField: React.FC<InputFieldProps> = ({
+    placeholder = '',
+    value = '',
+    onChangeText = () => {},
     inputMode = 'text',
     secureTextEntry = false,
 }) => {
@@ -43,6 +43,8 @@ const InputField: React.FC<InputFieldProps> = ({
         // Update the state
         setInputValue(text);
         onChangeText(text);
+
+        value = text;
     };
 
     return (
@@ -59,4 +61,4 @@ const InputField: React.FC<InputFieldProps> = ({
     );
 }
 
-export default InputField;
+export default CInputField;
