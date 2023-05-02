@@ -12,13 +12,12 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   function hi(text: string): void {
-    console.log(text);
+    // console.log(text);
   }
 
   return (
     <SafeAreaView>
-      <InputField placeholder='Hi' onChangeText={hi} value='This Is'></InputField>
-        
+      <InputField placeholder='info@example.com' onChangeText={hi} value='' secureTextEntry></InputField>
     </SafeAreaView>
   );
 }

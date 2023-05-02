@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
+import { InputModeOptions, SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
 interface InputFieldProps {
   placeholder: string;
   value: string;
   onChangeText: (text: string) => void;
+  inputMode?: InputModeOptions;
+  secureTextEntry?: boolean;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
-  placeholder,
-  value,
-  onChangeText,
+    placeholder,
+    value,
+    onChangeText,
+    inputMode = 'text',
+    secureTextEntry = false,
 }) => {
     // Styles
     const styles = StyleSheet.create({
@@ -48,6 +52,8 @@ const InputField: React.FC<InputFieldProps> = ({
             placeholder={placeholder}
             value={inputValue}
             onChangeText={handleInputChange}
+            inputMode={inputMode}
+            secureTextEntry={secureTextEntry}
         />
         </SafeAreaView>
     );
