@@ -2,7 +2,7 @@ import React from 'react';
 import {
     View,
     Text,
-    Button,
+    Button
 } from 'react-native';
 
 import { CButton } from '../components';
@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 function HomeScreen({ navigation }: any) {
+
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f3057' }}>
             <Text style={{color: '#FFD700', fontSize: 60}}
