@@ -25,10 +25,10 @@ class AuthService {
         await AsyncStorage.removeItem('token');
     }
 
-    // This function will be called to login the user
-    login = async (username: string, email: string, password: string) => {
+    // This function will be called to register the user
+    register = async (username: string, email: string, password: string) => {
         // Make the API call to login the user
-        const response = await fetch('http://localhost:3000/login/login', {
+        const response = await fetch('http://localhost:3000/login/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,4 +50,33 @@ class AuthService {
         return false;
     }
 
+    // This function will be called to login the user
+    login = async (email: string, password: string) => {
+        // Make the API call to login the user
+        const response = await fetch('http://localhost:3000/login/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        // Get the response body
+        const responseBody = await response.json();
+
+        // Check if the response was successful
+        if (response.status === 200) {
+            // Set the token in storage
+            await this.setToken(responseBody.token);
+
+            return true;
+        }
+
+        return false;
+    }
+
+
 }
+
+// Export the AuthService class
+export default AuthService;

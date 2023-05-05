@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Import all the screens from the "screens" folder
-import { HomeScreen, DetailsScreen } from '../screens';
+import { HomeScreen, DetailsScreen, RegisterScreen } from '../screens';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -20,6 +20,7 @@ function App(): JSX.Element {
         })}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
